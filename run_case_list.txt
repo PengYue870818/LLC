@@ -1,0 +1,92 @@
+=== 26-Run Parameter Sheet (PyCharm Python configuration -> Parameters (P), no quotes, order fixed) ===
+
+=== Usage notes: ===
+=== 1. Script path is always rerun.py for every run. ===
+=== 2. Working directory: project root (the folder containing rerun.py and seed_configs/). ===
+=== 3. Run all 8 Phase-1 runs first; only then run the 18 Phase-2 runs. ===
+=== 4. On a new machine, just copy these argument strings and re-create the PyCharm run configurations. ===
+=== 5. For each run below, the first line is the configuration name; paste the second line into Parameters. ===
+
+------------------------------
+Phase 1 (8 runs, cold start; run first)
+------------------------------
+P1_01_eqzoom_base
+seed_configs\eqzoom_v2 base_coarse from_zero\eqzoom_v2
+
+P1_02_eqzoom_pert
+seed_configs\eqzoom_v2 pert_coarse from_zero\eqzoom_v2
+
+P1_03_scan_eps-1_pert
+seed_configs\scan_eps-1_v2 pert_coarse from_zero\scan_eps-1_v2
+
+P1_04_scan_eps0.5_pert
+seed_configs\scan_eps0.5_v2 pert_coarse from_zero\scan_eps0.5_v2
+
+P1_05_scan_eps2_pert
+seed_configs\scan_eps2_v2 pert_coarse from_zero\scan_eps2_v2
+
+P1_06_full_small_base
+seed_configs\full_small_v2 base_coarse from_zero\full_small_v2
+
+P1_07_full_small_h005_base
+seed_configs\full_small_v2_h005 base_coarse from_zero\full_small_v2_h005
+
+P1_08_family_bump_eps0.5_base
+seed_configs\family_bump_eps0.5_v2 base_coarse from_zero\family_bump_eps0.5_v2
+
+------------------------------
+Phase 2 (18 runs; each depends on Phase-1 output)
+------------------------------
+P2_01_zoom_base_h1e3
+seed_configs\zoom_base_h1e3_v2 single from_zero\zoom_base_h1e3_v2 grid.restart_file=from_zero\eqzoom_v2 grid.restart_tag=base_coarse grid.restart_u=1.28
+
+P2_02_zoom_pert_h1e3
+seed_configs\zoom_pert_h1e3_v2 single from_zero\zoom_pert_h1e3_v2 grid.restart_file=from_zero\eqzoom_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_03_zoom_bump_eps0.5_base_v3
+seed_configs\zoom_bump_eps0.5_base_v3 single from_zero\zoom_bump_eps0.5_base_v3 grid.restart_file=from_zero\family_bump_eps0.5_v2 grid.restart_tag=base_coarse grid.restart_u=1.28
+
+P2_04_zoom_eps-1_pert_v3
+seed_configs\zoom_eps-1_pert_v3 single from_zero\zoom_eps-1_pert_v3 grid.restart_file=from_zero\scan_eps-1_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_05_zoom_eps0.5_pert_v3
+seed_configs\zoom_eps0.5_pert_v3 single from_zero\zoom_eps0.5_pert_v3 grid.restart_file=from_zero\scan_eps0.5_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_06_zoom_eps2_pert_v3
+seed_configs\zoom_eps2_pert_v3 single from_zero\zoom_eps2_pert_v3 grid.restart_file=from_zero\scan_eps2_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_07_zoom_base_h5e4b
+seed_configs\zoom_base_h5e4b_v2 single from_zero\zoom_base_h5e4b_v2 grid.restart_file=from_zero\eqzoom_v2 grid.restart_tag=base_coarse grid.restart_u=1.28
+
+P2_08_zoom_pert_h5e4b
+seed_configs\zoom_pert_h5e4b_v2 single from_zero\zoom_pert_h5e4b_v2 grid.restart_file=from_zero\eqzoom_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_09_zoom_bump_eps0.5_h5e4
+seed_configs\zoom_bump_eps0.5_h5e4_v2 single from_zero\zoom_bump_eps0.5_h5e4_v2 grid.restart_file=from_zero\family_bump_eps0.5_v2 grid.restart_tag=base_coarse grid.restart_u=1.28
+
+P2_10_z5_eps-1
+seed_configs\z5_eps-1_v2 single from_zero\z5_eps-1_v2 grid.restart_file=from_zero\scan_eps-1_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_11_z5_eps0.5
+seed_configs\z5_eps0.5_v2 single from_zero\z5_eps0.5_v2 grid.restart_file=from_zero\scan_eps0.5_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_12_z5_eps2
+seed_configs\z5_eps2_v2 single from_zero\z5_eps2_v2 grid.restart_file=from_zero\scan_eps2_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_13_h4_v5_x2_base
+seed_configs\h4_v5_x2 single from_zero\h4_v5_x2 grid.restart_file=from_zero\eqzoom_v2 grid.restart_tag=base_coarse grid.restart_u=1.28
+
+P2_14_h4_v5_x2_pert
+seed_configs\h4_v5_x2_pert single from_zero\h4_v5_x2_pert grid.restart_file=from_zero\eqzoom_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_15_zoom_bump_eps0.5_h25e5
+seed_configs\zoom_bump_eps0.5_h25e5_v2 single from_zero\zoom_bump_eps0.5_h25e5_v2 grid.restart_file=from_zero\family_bump_eps0.5_v2 grid.restart_tag=base_coarse grid.restart_u=1.28
+
+P2_16_h25_eps-1
+seed_configs\h25_eps-1 single from_zero\h25_eps-1 grid.restart_file=from_zero\scan_eps-1_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_17_h25_eps0.5
+seed_configs\h25_eps0.5 single from_zero\h25_eps-0.5 grid.restart_file=from_zero\scan_eps0.5_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
+
+P2_18_h25_eps2
+seed_configs\h25_eps2 single from_zero\h25_eps2 grid.restart_file=from_zero\scan_eps2_v2 grid.restart_tag=pert_coarse grid.restart_u=1.28
